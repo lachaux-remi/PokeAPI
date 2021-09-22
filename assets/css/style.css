@@ -1,0 +1,148 @@
+@font-face {
+    font-family: "Roboto";
+    src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+    font-weight: normal;
+}
+
+*, *:after, *:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    color: #ffffff;
+    font-family: "Roboto", sans-serif;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+.loader {
+    border: 0.25rem solid rgba(243, 243, 243, 0.5);
+    border-top: 0.25rem solid #ffff00;
+    border-radius: 50%;
+    width: 19px;
+    height: 19px;
+    animation: spin 1.5s linear infinite;
+}
+
+body {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: url("../img/background.jpg") no-repeat fixed center center;
+    background-size: cover;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+header, main {
+    width: 1024px;
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+nav .item {
+    padding: 5px 10px;
+
+    font-size: 24px;
+    color: #ffff00;
+    text-transform: capitalize;
+    border: 3px solid #ffff00;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+nav .item:hover {
+    backdrop-filter: blur(2px);
+}
+
+nav .loader {
+    width: 40px;
+    height: 40px;
+}
+
+main .list {
+    width: 35%;
+}
+
+main .list .item {
+    padding: 5px;
+    cursor: pointer;
+}
+
+main .list .item:hover {
+    text-decoration: underline;
+}
+
+main .info {
+    width: 65%;
+}
+
+main .list, main .info {
+    padding: 15px;
+    height: max-content;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #ffff00;
+    border-radius: 15px;
+}
+
+main .list .paginator {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+main .list .paginator .prev, main .list .paginator .next {
+    height: 19px;
+}
+
+main .info .item {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+}
+
+main .info .item:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+main .info .item .key {
+    text-transform: capitalize;
+}
+
+main .info .item .value-multiple {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+main .info .item .value-link {
+    text-decoration: underline;
+    cursor: pointer;
+    transition: text-decoration linear 0.2ms;
+}
+
+main .info .item .value-link:hover {
+    text-decoration: none;
+}
