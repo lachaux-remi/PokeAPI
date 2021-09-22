@@ -7,6 +7,7 @@ $(() => {
         <path fill="currentColor" d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path>
     </svg>`
 
+    $('<h1>Star Wars API</h1>').appendTo(document.body)
     const $header = $('<header></header>').appendTo(document.body)
     const $main = $('<main></main>').appendTo(document.body)
     const $list = $('<div class="list"></div>').appendTo($main)
@@ -39,7 +40,7 @@ $(() => {
             console.log('loading page', '|', 'get url ->', url, '|', 'data ->', data)
 
             $list.html('')
-            $(`<h2>Liste des ${name} (${data.count})</h2>`).appendTo($list)
+            $(`<h2>List of ${name} (${data.count})</h2>`).appendTo($list)
 
             if (data['results'] instanceof Array) {
                 data['results'].forEach(result => {
@@ -76,7 +77,7 @@ $(() => {
         console.log('showInfo', ' | ', 'data ->', data)
 
         $info.html('')
-        $(`<h2>Informations supplémentaire</h2>`).appendTo($info)
+        $(`<h2>Additional information</h2>`).appendTo($info)
 
         for (const key in data) {
             const $div = $(`<div class="item"></div>`)
@@ -108,9 +109,7 @@ $(() => {
             $.get(value, data => $value.html(data.name || data.title).click(() => showInfo(data)))
             return $value
         } else if (value.match('[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{6}Z')) {
-            return $(`<div class="value">${new Date(Date.parse(value)).toLocaleString()}</div>`)
-        } else if (value.match('[0-9]{4}-[0-9]{2}-[0-9]{2}')) {
-            return $(`<div class="value">${new Date(Date.parse(value)).toLocaleString('fr-FR')}</div>`)
+            return $(`<div class="value">${new Date(Date.parse(value)).toLocaleString('en-US')}</div>`)
         }
 
         return $(`<div class="value">${value}</div>`)
