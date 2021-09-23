@@ -109,7 +109,7 @@ $(() => {
         for (const key in data) {
             // on crée une <div class=item>
             const $div = $(`<div class="item"></div>`)
-            // on crée une <div class=key> avec comme value html la clé de lobject ou on retire les _
+            // on crée une <div class=key> avec comme value html la clé de l'object ou on retire les _
             // et on l'ajoute a <div class=item>
             $(`<div class="key">${key.replaceAll('_', ' ')}</div>`).appendTo($div)
 
@@ -118,7 +118,7 @@ $(() => {
                 // on crée une <div class=value-multiple>
                 const $value = $(`<div class="value-multiple"></div>`)
 
-                // Si data[key].length est 0 ou null ou undefined on definis le html en -----
+                // Si data[key].length est 0 ou null ou undefined on définis le html en -----
                 if (!data[key].length) $value.html('-----')
                 else {
                     // Sinon pour la value on boucle sur chaque element que l'on passe a la fonction parseValue()
